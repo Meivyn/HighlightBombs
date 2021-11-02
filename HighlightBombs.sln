@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightBombs", "HighlightBombs.csproj", "{1A9A67C3-2010-440A-A171-A0D8693167DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A9A67C3-2010-440A-A171-A0D8693167DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9A67C3-2010-440A-A171-A0D8693167DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9A67C3-2010-440A-A171-A0D8693167DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9A67C3-2010-440A-A171-A0D8693167DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17FCB2C7-5E2B-4770-81EA-DA0DD9198E52}
+	EndGlobalSection
+EndGlobal

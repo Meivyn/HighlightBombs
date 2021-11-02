@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "HighlightBombs",
+  "name": "HighlightBombs",
+  "author": "Meivyn",
+  "version": "1.0.0",
+  "description": "Adds a slight outline to bombs to make them more visible in the dark.",
+  "gameVersion": "1.18.2",
+  "dependsOn": {
+    "BSIPA": "^4.2.0"
+  }
+}

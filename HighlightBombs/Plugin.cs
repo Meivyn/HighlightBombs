@@ -8,22 +8,24 @@ using IPALogger = IPA.Logging.Logger;
 
 namespace HighlightBombs
 {
-    [Plugin(RuntimeOptions.SingleStartInit)]
+    [Plugin(RuntimeOptions.DynamicInit)]
     public class Plugin
     {
+        private readonly Harmony _harmony;
+
         internal static IPALogger Log { get; private set; } = null!;
 
         [Init]
         public Plugin(IPALogger logger)
         {
             Log = logger;
+            _harmony = new Harmony("com.meivyn.HighlightBombs");
         }
 
-        [OnStart]
-        public void OnApplicationStart()
+        [OnEnable]
+        public void OnEnable()
         {
-            var harmony = new Harmony("com.meivyn.HighlightBombs");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            _harmony.PatchAll(Assembly.GetExecutingAssembly());
             SharedCoroutineStarter.instance.StartCoroutine(LoadQuickOutlineMaterials());
         }
 
@@ -46,9 +48,10 @@ namespace HighlightBombs
             Log.Debug("Loaded QuickOutline Material Assets");
         }
 
-        [OnExit]
-        public void OnApplicationQuit()
+        [OnDisable]
+        public void OnDisable()
         {
+            _harmony.UnpatchSelf();
         }
     }
 }

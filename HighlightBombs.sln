@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightBombs", "HighlightBombs.csproj", "{1A9A67C3-2010-440A-A171-A0D8693167DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighlightBombs", "HighlightBombs\HighlightBombs.csproj", "{1A9A67C3-2010-440A-A171-A0D8693167DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

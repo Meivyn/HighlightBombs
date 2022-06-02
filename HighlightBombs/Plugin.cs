@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Reflection;
 using HarmonyLib;
-using NiceMiss;
 using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
 

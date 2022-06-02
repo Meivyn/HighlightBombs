@@ -3,10 +3,10 @@
   "id": "HighlightBombs",
   "name": "HighlightBombs",
   "author": "Meivyn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adds a slight outline to bombs to make them more visible in the dark.",
-  "gameVersion": "1.18.2",
+  "gameVersion": "1.21.1",
   "dependsOn": {
-    "BSIPA": "^4.2.0"
+    "BSIPA": "^4.2.1"
   }
 }

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-namespace NiceMiss
+
+namespace HighlightBombs
 {
     //Original File modified for use with this mod
 

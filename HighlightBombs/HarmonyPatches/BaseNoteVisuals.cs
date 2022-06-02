@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using NiceMiss;
 using UnityEngine;
 
 namespace HighlightBombs.HarmonyPatches
@@ -9,7 +8,18 @@ namespace HighlightBombs.HarmonyPatches
     {
         private static void Postfix(NoteController ____noteController)
         {
-            var outline = ____noteController.gameObject.AddComponent<Outline>();
+            if (____noteController is not BombNoteController)
+            {
+                return;
+            }
+
+            // Custom Notes reuse meshes, so the outline may have already been added.
+            var outline = ____noteController.gameObject.GetComponent<Outline>();
+            if (outline == null)
+            {
+                outline = ____noteController.gameObject.AddComponent<Outline>();
+            }
+
             outline.CheckRenderersValidity();
             outline.enabled = false;
             outline.OutlineMode = Outline.Mode.OutlineVisible;
@@ -20,16 +30,16 @@ namespace HighlightBombs.HarmonyPatches
 
     [HarmonyPriority(Priority.Low)]
     [HarmonyPatch(typeof(BaseNoteVisuals), nameof(BaseNoteVisuals.HandleNoteControllerDidInit))]
-    internal class BaseNoteVisualsHandleNoteControllerDidInitEventPatch
+    internal class BaseNoteVisualsHandleNoteControllerDidInitPatch
     {
-        private static void Postfix(NoteController ____noteController)
+        private static void Postfix(NoteControllerBase ____noteController)
         {
-            if (____noteController.noteData.colorType != ColorType.None)
+            if (____noteController is not BombNoteController)
             {
                 return;
             }
 
-            var outline = ____noteController.gameObject.GetComponentInChildren<Outline>();
+            var outline = ____noteController.gameObject.GetComponent<Outline>();
             outline.enabled = true;
         }
     }

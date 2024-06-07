@@ -42,13 +42,10 @@ namespace HighlightBombs
                 Log.Error("Failed To load QuickOutline Bundle");
                 yield break;
             }
-            var fillMatRequest = quickOutlineBundle.LoadAssetAsync<Material>("OutlineFill");
-            yield return fillMatRequest;
-            Outline.outlineFillMaterialSource = fillMatRequest.asset as Material;
-            var maskMatRequest = quickOutlineBundle.LoadAssetAsync<Material>("OutlineMask");
-            yield return maskMatRequest;
-            Outline.outlineMaskMaterialSource = maskMatRequest.asset as Material;
-            Log.Debug("Loaded QuickOutline Material Assets");
+            var materialRequest = quickOutlineBundle.LoadAssetAsync<Material>("Outline");
+            yield return materialRequest;
+            Outline.outlineMaterialSource = materialRequest.asset as Material;
+            Log.Debug("Loaded QuickOutline Material Asset");
         }
 
         [OnDisable]

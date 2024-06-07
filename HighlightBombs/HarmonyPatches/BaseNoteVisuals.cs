@@ -6,21 +6,20 @@ namespace HighlightBombs.HarmonyPatches
     [HarmonyPatch(typeof(BaseNoteVisuals), nameof(BaseNoteVisuals.Awake))]
     internal class BaseNoteVisualsAwakePatch
     {
-        private static void Postfix(NoteController ____noteController)
+        private static void Postfix(BaseNoteVisuals __instance)
         {
-            if (____noteController is not BombNoteController)
+            if (__instance._noteController is not BombNoteController)
             {
                 return;
             }
 
             // Custom Notes reuse meshes, so the outline may have already been added.
-            var outline = ____noteController.gameObject.GetComponent<Outline>();
+            var outline = __instance.gameObject.GetComponent<Outline>();
             if (outline == null)
             {
-                outline = ____noteController.gameObject.AddComponent<Outline>();
+                outline = __instance.gameObject.AddComponent<Outline>();
             }
 
-            outline.CheckRenderersValidity();
             outline.enabled = false;
             outline.OutlineMode = Outline.Mode.OutlineVisible;
             outline.OutlineColor = Color.white;
@@ -28,18 +27,17 @@ namespace HighlightBombs.HarmonyPatches
         }
     }
 
-    [HarmonyPriority(Priority.Low)]
     [HarmonyPatch(typeof(BaseNoteVisuals), nameof(BaseNoteVisuals.HandleNoteControllerDidInit))]
     internal class BaseNoteVisualsHandleNoteControllerDidInitPatch
     {
-        private static void Postfix(NoteControllerBase ____noteController)
+        private static void Postfix(BaseNoteVisuals __instance)
         {
-            if (____noteController is not BombNoteController)
+            if (__instance._noteController is not BombNoteController)
             {
                 return;
             }
 
-            var outline = ____noteController.gameObject.GetComponent<Outline>();
+            var outline = __instance._noteController.gameObject.GetComponent<Outline>();
             outline.enabled = true;
         }
     }

@@ -7,14 +7,14 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="BeatSaberModdingTools.Tasks" Version="2.0.0-beta4">
+    <PackageReference Include="BeatSaberModdingTools.Tasks" Version="2.0.0-beta7">
       <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
@@ -23,8 +23,8 @@
       <HintPath>$(BeatSaberDir)\Libs\0Harmony.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="HMLib">
-      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\HMLib.dll</HintPath>
+    <Reference Include="BGLib.UnityExtension">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BGLib.UnityExtension.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="IPA.Loader">
@@ -33,6 +33,11 @@
     </Reference>
     <Reference Include="Main">
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Main.dll</HintPath>
+      <Private>false</Private>
+      <Publicize>true</Publicize>
+    </Reference>
+    <Reference Include="SiraUtil">
+      <HintPath>$(BeatSaberDir)\Plugins\SiraUtil.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
@@ -43,19 +48,22 @@
       <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Zenject">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Zenject.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Zenject-usage.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="manifest.json" />
-    <EmbeddedResource Include="QuickOutline\Resources\outlineBundle" />
+    <EmbeddedResource Include="QuickOutline\QuickOutline\AssetBundles\outline" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="HighlightBombs.csproj.user" Condition="Exists('HighlightBombs.csproj.user')" />
-    <None Include="..\README.md" Condition="Exists('..\README.md')" />
-    <None Include="..\CHANGELOG.md" Condition="Exists('..\CHANGELOG.md')" />
-    <None Include="..\LICENSE.md" Condition="Exists('..\LICENSE.md')" />
-    <None Include="..\.gitignore" Condition="Exists('..\.gitignore')" />
   </ItemGroup>
 
 </Project>

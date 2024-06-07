@@ -24,6 +24,7 @@ namespace HighlightBombs.HarmonyPatches
             outline.OutlineMode = Outline.Mode.OutlineVisible;
             outline.OutlineColor = Color.white;
             outline.OutlineWidth = 1f;
+            outline.OutlineVisibility = Outline.Visibility.AlwaysVisible;
         }
     }
 
